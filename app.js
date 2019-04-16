@@ -6,11 +6,14 @@ const mongoose = require('mongoose');
 const productRoutes = require('./api/routes/products')
 const orderRoutes = require('./api/routes/orders')
 
-    mongoose.connect('mongodb+srv://test:'+ process.env.MONGO_ATLAS_PW+'@test-gatr3.mongodb.net/test?retryWrites=true',
-    
-    { useNewUrlParser: true })
+mongoose.connect(
+    'mongodb+srv://test:'+ process.env.MONGO_ATLAS_PW+'@test-gatr3.mongodb.net/test?retryWrites=true',
+    { useNewUrlParser: true }
+    )
 
 app.use(morgan('dev'));
+
+// Use for reading the body of a request
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json());
 
